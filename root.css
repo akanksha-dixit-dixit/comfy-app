@@ -1,0 +1,19 @@
+/* 
+  This CSS file contains all the meta CSS required for the main CSS styles like:
+root variables
+
+*/
+
+:root {
+  --color-blue: #021431;
+  --size: 1170px;
+  --padding-topBottom: 0.5rem;
+  --font-size: 1.5rem;
+  --color-primary: #fff;
+  --color-nav: #f4f8fa;
+  --radius-btn: 1rem;
+  --navBar-font: 1.5rem;
+  --background-color: #102a42;
+  --primary-color: #ab7a5f;
+  --color-grey: #f1f5f8;
+}
