@@ -294,6 +294,7 @@ article.testimonial-image::before {
 }
 .icon-details {
   margin-block-start: 2rem;
+  cursor: pointer;
 }
 section.card-container {
   width: 100%;
@@ -362,4 +363,40 @@ h4.card-title {
   font-size: 1.9rem;
   line-height: 1.8;
   color: var(--clr-primary-3);
+}
+section.newsetetr-box {
+  width: 100%;
+}
+section.newsetetr-box {
+  width: 100%;
+  padding-block: 10rem;
+}
+section.newsetetr-box {
+  padding: 10.1rem;
+}
+.section {
+  max-width: 50%;
+}
+section.newsetetr-box {
+  padding-block: 18rem;
+}
+.newsletter-email {
+  max-width: 50%;
+}
+.newsletter {
+  display: flex;
+  justify-content: space-between;
+  line-height: 20px;
+  align-items: center;
+}
+.newsletter p {
+  max-width: 57rem;
+  font-size: 1.8rem;
+  line-height: 26px;
+  padding-top: 29px;
+  color: var(--clr-primary-8);
+}
+h3.newsletter-title {
+  font-size: 3.3rem;
+  letter-spacing: 2px;
 }
