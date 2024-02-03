@@ -126,3 +126,28 @@ buttonLeftTestimonial.addEventListener('click', (e) => {
   dynamic[2].innerHTML = review[reviewCounter].job;
   dynamic[3].innerHTML = review[reviewCounter].content;
 });
+
+// ##########################Dark-light mode###################################################################################################
+const themeMode = document.getElementById('theme-mode');
+const localStorageTheme = localStorage.getItem('theme');
+const systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)');
+// let theme = 'light';
+
+let getTheme = (localStorageTheme, systemSettingDark) => {
+  if (localStorageTheme !== null) return localStorageTheme;
+  else if (systemSettingDark.matches) return 'dark';
+  else return 'light';
+};
+
+const changeThemeMode = (theme) => localStorage.setItem('theme', theme);
+
+themeMode.addEventListener('click', (e) => {
+  let newTheme = 'light';
+  if (getTheme === 'light') newTheme = 'dark';
+  else if (getTheme === 'dark') newTheme = 'light';
+
+  getTheme = newTheme;
+  changeThemeMode(newTheme);
+
+  console.log(newTheme);
+});

@@ -24,4 +24,22 @@ root variables
   --clr-primary-5: #ab7a5f;
   --clr-black: #222;
   --clr-primary-5: #ab7a5f;
+  --grid-unit:1rem;
+  --border-radius-base:0.5rem;
+}
+
+[data-theme="light"]{
+  --color-bg:#ffff;
+  --color-fg:#000;
+}
+
+[data-theme="dark"]{
+  --color-bg:#000;
+  --color-fg:#fff;
+}
+
+/* example use of CSS custom properties */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
