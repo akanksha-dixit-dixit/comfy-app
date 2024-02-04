@@ -128,26 +128,51 @@ buttonLeftTestimonial.addEventListener('click', (e) => {
 });
 
 // ##########################Dark-light mode###################################################################################################
-const themeMode = document.getElementById('theme-mode');
-const localStorageTheme = localStorage.getItem('theme');
-const systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)');
-// let theme = 'light';
+let themeMode = document.getElementById('theme-mode');
+let localStorageTheme = localStorage.getItem('theme');
+let systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)');
+let resultId = document.getElementById('result_id');
 
-let getTheme = (localStorageTheme, systemSettingDark) => {
+themeMode.addEventListener('click', (e) => {
+  if (currentTheme === 'light') {
+    localStorage.setItem('theme', 'dark');
+    resultId.setAttribute('data-theme', 'light');
+    currentTheme = 'dark';
+  } else {
+    localStorage.setItem('theme', 'light');
+    resultId.setAttribute('data-theme', 'dark');
+    currentTheme = 'light';
+  }
+});
+
+let themeChangeMode = (localStorageTheme, systemSettingDark) => {
   if (localStorageTheme !== null) return localStorageTheme;
-  else if (systemSettingDark.matches) return 'dark';
+  else if (systemSettingDark.matches == 'light') return 'dark';
   else return 'light';
 };
 
-const changeThemeMode = (theme) => localStorage.setItem('theme', theme);
+let currentTheme = themeChangeMode(localStorageTheme, systemSettingDark);
 
-themeMode.addEventListener('click', (e) => {
-  let newTheme = 'light';
-  if (getTheme === 'light') newTheme = 'dark';
-  else if (getTheme === 'dark') newTheme = 'light';
+// const themeMode = document.getElementById('theme-mode');
+// const localStorageTheme = localStorage.getItem('theme');
+// const systemSettingDark = window.matchMedia('(prefers-color-scheme: dark)');
+// // let theme = 'light';
 
-  getTheme = newTheme;
-  changeThemeMode(newTheme);
+// let getTheme = (localStorageTheme, systemSettingDark) => {
+//   if (localStorageTheme !== null) return localStorageTheme;
+//   else if (systemSettingDark.matches) return 'dark';
+//   else return 'light';
+// };
 
-  console.log(newTheme);
-});
+// const changeThemeMode = (theme) => localStorage.setItem('theme', theme);
+
+// themeMode.addEventListener('click', (e) => {
+//   let newTheme = 'light';
+//   if (getTheme === 'light') newTheme = 'dark';
+//   else if (getTheme === 'dark') newTheme = 'light';
+
+//   getTheme = newTheme;
+//   changeThemeMode(newTheme);
+
+//   console.log(newTheme);
+// });

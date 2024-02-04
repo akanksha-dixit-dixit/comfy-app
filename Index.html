@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" id="result_id">
 
 <head>
 	<link rel="stylesheet" href="style.css">
@@ -15,7 +15,7 @@
 
 <body>
 	<!-- header -->
-	<header class="container-header">
+	<header class="container-header" id="Home">
 		<div class="wrapper-header">
 			<a href="#">Sign In/Guest</a>
 			<a href="#">Create Account</a>
@@ -26,21 +26,22 @@
 	<nav>
 		<div class="navbar">
 			<div class="navbar-start">
-				<a href="" class="logo"><img src="images/logo.png" alt=""></a>
+				<a href="#Home" class="logo"><img src="images/logo.png" alt=""></a>
 			</div>
 
 			<div class="navbar-center">
 				<ul class="menuBar">
-					<li><a href="">Home</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Product</a></li>
-					<li><a href="">Cart</a></li>
+					<li><a href="#Home">Home</a></li>
+					<li><a href="#Product">Product</a></li>
+					<li><a href="#About">About</a></li>
+					<li><a href="#Testimonial">Testimonial</a></li>
+					<li><a href="#Signup">Signup</a></li>
 				</ul>
 			</div>
 
 			<div class="navbar-end">
 				<button type="button" id="theme-mode"><span><ion-icon name="moon-outline"></ion-icon></span></button>
-				<p id="cart"><span><ion-icon name="cart-outline"></ion-icon></span></p>
+
 			</div>
 		</div>
 	</nav>
@@ -70,7 +71,7 @@
 	</div>
 
 	<!-- ---Feature Poduct  -->
-	<section class="featureProduct">
+	<section class="featureProduct" id="Product">
 		<div class="feature-Wrapper">
 			<h1 class="featureProduct-title">Featured Product</h1>
 			<div class="underline"></div>
@@ -96,7 +97,7 @@
 
 	<!-- --------testimonial--------- -->
 
-	<section class="tesimonial">
+	<section class="tesimonial" id="Testimonial">
 		<h1 class="testimonial-title">Our Customer Review</h1>
 		<div class="underline"></div>
 		<div class="container">
@@ -138,7 +139,7 @@
 
 	<!-- Custom Furniture  Built Only For You -->
 
-	<section class="card-container">
+	<section class="card-container" id="About">
 		<div class="contenCard">
 
 			<h1 class="card-title">Custom Furniture <br>Built Only For You</h1>
@@ -170,7 +171,7 @@
 		</div>
 	</section>
 
-	<section class="newsetetr-box">
+	<section class="newsetetr-box" id="Signup">
 		<div class="section">
 			<h3 class="newsletter-title">Join our newsletter and get 20% off</h3>
 		</div>

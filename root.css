@@ -4,6 +4,7 @@ root variables
 
 */
 
+
 :root {
   --color-blue: #021431;
   --size: 1170px;
@@ -24,22 +25,22 @@ root variables
   --clr-primary-5: #ab7a5f;
   --clr-black: #222;
   --clr-primary-5: #ab7a5f;
-  --grid-unit:1rem;
-  --border-radius-base:0.5rem;
+  --grid-unit: 1rem;
+  --border-radius-base: 0.5rem;
 }
 
-[data-theme="light"]{
-  --color-bg:#ffff;
-  --color-fg:#000;
+[data-theme='light'] {
+--navBgColor: #fff;
+--navFontColor: #000;
 }
 
-[data-theme="dark"]{
-  --color-bg:#000;
-  --color-fg:#fff;
+[data-theme='dark'] {
+  --navBgColor: #000;
+  --navFontColor: #fff;
 }
 
 /* example use of CSS custom properties */
-body {
+/* body {
   background-color: var(--color-bg);
   color: var(--color-fg);
-}
+} */
