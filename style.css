@@ -453,3 +453,73 @@ button#theme-mode {
 p#cart {
   color: var(--navFontColor);
 }
+
+.signInModal {
+  margin-inline: auto;
+  transform: translate(0, 27rem);
+}
+.login-page {
+  width: 360px;
+  margin: 0 auto;
+}
+
+.form {
+  position: relative;
+  background: #ffffff;
+  width: inherit;
+  padding: 45px;
+}
+
+.fieldset {
+  margin-block-end: 18px;
+}
+
+input[type='text'],
+input[type='password'] {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.user-error::after {
+  content: attr(data-user);
+}
+.pass-error::after {
+  content: attr(data-pass);
+}
+
+button[type='submit'] {
+  text-transform: uppercase;
+  outline: 0;
+  background: #4caf50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: background 0.35s ease;
+  cursor: pointer;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #43a047;
+}
+.signInModal {
+  margin: 0 auto;
+  transform: translate(0%, 35vh);
+  text-align: center;
+  border: none;
+  box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.signInModal::backdrop {
+  background-color: rgba(0 0 0 / 0.85);
+  opacity: 0.55;
+}

@@ -17,8 +17,12 @@
 	<!-- header -->
 	<header class="container-header" id="Home">
 		<div class="wrapper-header">
-			<a href="#">Sign In/Guest</a>
-			<a href="#">Create Account</a>
+			<a href="#" id="SignIn">Sign In/Guest</a>
+
+
+			<a href="#" id="createAccount">Create Account</a>
+
+
 		</div>
 
 	</header>
@@ -191,6 +195,29 @@
 			<p>&copy; 2024 <span>ComfyAk</span> All rights reserved</p>
 		</div>
 	</footer>
+
+	<!-- ###################################### Form MOdal######################################################### -->
+
+
+	<dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" class="signInModal">
+		<h2>SIGN IN</h2>
+		<div class="root login-page">
+			<div class="form">
+				<form action="" class="login-form" id="form">
+					<div class="fieldset">
+						<input name="username" type="text" placeholder="username" />
+						<p data-user="" class="user-error"></p>
+					</div>
+
+					<div class="fieldset">
+						<input name="password" type="password" placeholder="password" />
+						<p data-pass="" class="pass-error"></p>
+					</div>
+					<button type="submit">login</button>
+				</form>
+			</div>
+		</div>
+	</dialog>
 
 </body>
 

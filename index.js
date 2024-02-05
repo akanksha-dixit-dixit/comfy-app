@@ -176,3 +176,21 @@ let currentTheme = themeChangeMode(localStorageTheme, systemSettingDark);
 
 //   console.log(newTheme);
 // });
+
+// ################################################SignIn Modal##############################################################################
+let SignIn = document.getElementById('SignIn');
+let createAccount = document.getElementById('createAccount');
+let signInModal = document.querySelector('.signInModal');
+let closeDialog = document.getElementById('close_dialog');
+let confirmDialog = document.getElementById('confirm_dialog');
+let alertModal = document.querySelector('.alertModal')
+
+SignIn.addEventListener('click', (e) => {
+  signInModal.showModal();
+});
+closeDialog.addEventListener('click', (e) => {
+  signInModal.close();
+});
+confirmDialog.addEventListener('click', (e) => {
+ 
+});
