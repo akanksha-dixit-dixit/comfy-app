@@ -183,14 +183,40 @@ let createAccount = document.getElementById('createAccount');
 let signInModal = document.querySelector('.signInModal');
 let closeDialog = document.getElementById('close_dialog');
 let confirmDialog = document.getElementById('confirm_dialog');
-let alertModal = document.querySelector('.alertModal')
+let alertModal = document.querySelector('.alertModal');
+let cancelBtn = document.getElementById('cancelbtn');
+let username = document.getElementById('username');
+let password = document.getElementById('password');
+let loginButton = document.getElementById('loginButton');
+let nonSubmitModal = document.querySelector('.nonSubmitModal');
+let form = document.getElementById('form');
+let oKbtn = document.getElementById('oKbtn');
 
 SignIn.addEventListener('click', (e) => {
   signInModal.showModal();
 });
-closeDialog.addEventListener('click', (e) => {
+
+cancelBtn.addEventListener('click', (e) => {
   signInModal.close();
 });
-confirmDialog.addEventListener('click', (e) => {
- 
+
+form.addEventListener('submit', (e) => {
+  let user = username.value;
+  let pass = password.value;
+  e.preventDefault();
+  console.log(username);
+  if (username.value === '' && password.value === '') {
+    nonSubmitModal.showModal();
+  } else {
+    localStorage.setItem('username', user);
+    localStorage.setItem('password', pass);
+    alert(`Welcome back', ${username.value}`);
+    signInModal.close();
+  }
+  username.value = '';
+  password.value = '';
+});
+
+oKbtn.addEventListener('click', (e) => {
+  nonSubmitModal.close();
 });

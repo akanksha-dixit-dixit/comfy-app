@@ -523,3 +523,19 @@ button[type='submit'] {
   background-color: rgba(0 0 0 / 0.85);
   opacity: 0.55;
 }
+
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+dialog.nonSubmitModal.signInModal {
+  padding: 2rem 4rem;
+  transform: translate(38rem, 25rem);
+}
+.nonSubmitModal p {
+  font-size: 1.8rem;
+  margin-block: 1.2rem;
+}
+button#oKbtn {
+  padding: 1.1rem 2.1rem;
+}
