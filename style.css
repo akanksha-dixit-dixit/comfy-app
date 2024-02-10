@@ -56,12 +56,17 @@ nav {
 }
 
 .menuBar li:first-child {
+  /* background-color: #021431;
+  color: #fff;
+  border-radius: 4px; */
+}
+.active {
   background-color: #021431;
   color: #fff;
   border-radius: 4px;
 }
 
-.menuBar li:not(:first-child):hover {
+.menuBar li:not(.active):hover {
   background-color: #394e6a1a;
   color: #000;
   border-radius: 5px;
@@ -412,12 +417,12 @@ form.form {
 .form input {
   padding: 0.9rem 1rem;
   color: var(--clr-grey-5);
-  width: 56%;
 }
 .form button {
   padding: 0.8rem 1rem;
   cursor: pointer;
-  background: var(--clr-primary-5);
+  background: #43a047;
+  color: #fff;
   border: none;
   letter-spacing: 2px;
   font-size: 1.7rem;
@@ -459,7 +464,7 @@ p#cart {
   transform: translate(0, 27rem);
 }
 .login-page {
-  width: 360px;
+  width: 36rem;
   margin: 0 auto;
 }
 
@@ -467,7 +472,7 @@ p#cart {
   position: relative;
   background: #ffffff;
   width: inherit;
-  padding: 45px;
+  padding: 3rem 3rem;
 }
 
 .fieldset {
@@ -493,26 +498,31 @@ input[type='password'] {
 }
 
 button[type='submit'] {
-  text-transform: uppercase;
   outline: 0;
   background: #4caf50;
-  width: 100%;
+
   border: 0;
   padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 1.7rem;
   transition: background 0.35s ease;
   cursor: pointer;
 }
 
+button[type='submit'],
 .form button:hover,
 .form button:active,
 .form button:focus {
   background: #43a047;
 }
+
+button#cancelbtn {
+  color: #fff;
+}
+
 .signInModal {
   margin: 0 auto;
-  transform: translate(0%, 35vh);
+  transform: translate(0%, 15vh);
   text-align: center;
   border: none;
   box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
@@ -538,4 +548,70 @@ dialog.nonSubmitModal.signInModal {
 }
 button#oKbtn {
   padding: 1.1rem 2.1rem;
+}
+
+.createAnAccountModal {
+  width: 30%;
+}
+
+.remember {
+  text-align: left;
+}
+
+.remember input {
+  margin-inline-end: 1rem;
+}
+dialog.creatloginacModal.signInModal {
+  padding: 2rem 4rem;
+  transform: translate(0, 12rem);
+}
+.creatloginacModal {
+  font-size: 1.8rem;
+  margin-block: 1.2rem;
+}
+
+.siginConfirmCancel {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  background: #43a047;
+  border: none;
+  letter-spacing: 2px;
+  font-size: 1.7rem;
+}
+
+.button {
+  display: flex;
+  gap: 1rem;
+  margin-block-start: 1rem;
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.signInModal h2 {
+  padding-top: 2.5rem;
+}
+h1.form-title {
+  padding-block-end: 1rem;
+}
+p.caption-title {
+  padding-block-end: 1.4rem;
+  font-size: 1.1rem;
+}
+
+.info {
+  padding: 1rem;
+  margin-block-end: 1rem;
+}
+
+.siginIConfirmModal {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.siginIConfirmModal button {
+  padding: 0.5rem 1rem;
+  color: #fff;
 }

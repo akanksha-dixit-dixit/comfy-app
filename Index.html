@@ -15,12 +15,13 @@
 
 <body>
     <!-- header -->
-    <header class="container-header" id="Home">
+    <header class="container-header  " id="Home">
         <div class="wrapper-header">
-            <a href="#" id="SignIn">Sign In/Guest</a>
+            <a href="#" id="SignIn" class="signinlink">Sign In</a>
+            <a href="#" id="createAccountLink" class="createAclink">Create Account</a>
 
-
-            <a href="#" id="createAccount">Create Account</a>
+            <p class="welcomeText"></p>
+            <a href="#" id="logoutbtn" class="hide">Log out</a>
 
 
         </div>
@@ -35,11 +36,11 @@
 
             <div class="navbar-center">
                 <ul class="menuBar">
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#Product">Product</a></li>
-                    <li><a href="#About">About</a></li>
-                    <li><a href="#Testimonial">Testimonial</a></li>
-                    <li><a href="#Signup">Signup</a></li>
+                    <li class="navlink active"><a href="#Home">Home</a></li>
+                    <li class="navlink"><a href="#Product">Product</a></li>
+                    <li class="navlink"><a href="#About">About</a></li>
+                    <li class="navlink"><a href="#Testimonial">Testimonial</a></li>
+                    <li class="navlink"><a href="#Signup">Signup</a></li>
                 </ul>
             </div>
 
@@ -184,7 +185,8 @@
                 repellendus similique, error veniam accusantium molestiae.
                 Cumque eaque vel facilis quia dolorem</p>
             <form action="#" class="form">
-                <input type="text" placeholder="Enter Email" /><button type="submit">Subscribe</button>
+
+                <button type="submit"><a href="mailto:someone@example.com">Subscribe</a></button>
             </form>
 
         </div>
@@ -215,24 +217,82 @@
                         <p data-pass="" class="pass-error"></p>
                     </div>
                     <div class="btns">
-                        <button type="submit" id="loginButton">login</button>
-                        <button type="reset" id="cancelbtn">cancel</button>
+                        <button type="submit" id="loginButton">Login</button>
+                        <button type="reset" id="cancelbtn">Cancel</button>
                     </div>
-
-                    <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" class="nonSubmitModal signInModal ">
-                        <p>Please Fill All The Required Fields </p>
-                        <button type="reset" id="oKbtn">OK</button>
-                    </dialog>
-
- 
-
-
 
                 </form>
             </div>
         </div>
     </dialog>
 
+    <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description" class="nonSubmitModal signInModal ">
+        <p>Please Fill All The Required Fields </p>
+        <button type="reset" id="oKbtn">OK</button>
+    </dialog>
+
+    <!-- ###################################### Create An Account MOdal######################################################### -->
+
+    <dialog aria-labelledby="dialog_title" aria-describedby="dialog_description"
+        class="createAnAccountModal signInModal">
+
+        <div class="root login-page">
+            <div class="form">
+                <form action="" class="login-form" id="form1">
+                    <h1 class="form-title">Create Account Form</h1>
+                    <p class="caption-title">Complete your profile by filling in this account creation form.</p>
+                    <div class="fieldset">
+                        <input name="user" type="text" id="user" placeholder="user" />
+                        <p data-user="" class="user-error"></p>
+
+                    </div>
+
+                    <div class="fieldset">
+                        <input name="pass" id="pass" type="password" placeholder="pass" />
+                        <p data-pass="" class="pass-error"></p>
+                    </div>
+
+
+                    <div class="fieldset">
+                        <input name="Email" id="Email" type="text" placeholder="Email" />
+                        <p data-email="" class="pass-error"></p>
+                    </div>
+
+                    <!-- <div class="fieldset">
+                        <input name="Birtdate" id="birtdate" type="text" placeholder="" />
+                        <p data-pass="" class="birthday-error"></p>
+                    </div> -->
+
+
+
+                    <div class="fieldset remember">
+                        <input type="checkbox" checked="checked" name="remember" id="rememberMe">Remember me
+                        <p data-pass="" class="checkbox-error"></p>
+                    </div>
+
+                    <div class="btns">
+                        <button type="submit" id="createAccountForm">New Account</button>
+                        <button type="reset" id="Closeaccountbtn"
+                            onClick="document.querySelector('.createAnAccountModal').close()">Cancel</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog data-signin-confirm class="creatloginacModal signInModal">
+        <div class="info">
+            <h3>Invalid Credentials
+            </h3>
+            <p>Do you want to retry, or create a new account.</p>
+        </div> 
+        <div class="buttons siginIConfirmModal">
+            <button type="submit" id="closeModalButton">Retry</button>
+            <button class="siginConfirmCancel" id="closeModalButtonconfirm">New Account</button>
+        </div>
+    </dialog>
 </body>
 
 </html>

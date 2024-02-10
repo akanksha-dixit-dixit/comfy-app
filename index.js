@@ -101,7 +101,7 @@ const buttonRightTestimonial = document.querySelector(
 );
 const job = document.querySelector('#job');
 const dynamic = document.querySelectorAll('.dynamic');
-console.log(job);
+// console.log(job);
 
 let reviewCounter = 0;
 buttonRightTestimonial.addEventListener('click', (e) => {
@@ -114,7 +114,7 @@ buttonRightTestimonial.addEventListener('click', (e) => {
   dynamic[1].innerHTML = review[reviewCounter].author;
   dynamic[2].innerHTML = review[reviewCounter].job;
   dynamic[3].innerHTML = review[reviewCounter].content;
-  console.log(dynamic);
+  // console.log(dynamic);
 });
 
 buttonLeftTestimonial.addEventListener('click', (e) => {
@@ -191,6 +191,12 @@ let loginButton = document.getElementById('loginButton');
 let nonSubmitModal = document.querySelector('.nonSubmitModal');
 let form = document.getElementById('form');
 let oKbtn = document.getElementById('oKbtn');
+let closeModalButton = document.getElementById('closeModalButton');
+let siginConfirmCancel = document.querySelector('.siginConfirmCancel');
+const modalsignIn = document.querySelector('[data-signin-confirm]');
+const creatloginacModal = document.querySelector('.creatloginacModal');
+let logoutbtn = document.getElementById('logoutbtn');
+let welcomeText = document.querySelector('.welcomeText');
 
 SignIn.addEventListener('click', (e) => {
   signInModal.showModal();
@@ -200,23 +206,118 @@ cancelBtn.addEventListener('click', (e) => {
   signInModal.close();
 });
 
+const handleWelcome = () => {};
+
 form.addEventListener('submit', (e) => {
   let user = username.value;
   let pass = password.value;
   e.preventDefault();
-  console.log(username);
   if (username.value === '' && password.value === '') {
     nonSubmitModal.showModal();
   } else {
-    localStorage.setItem('username', user);
-    localStorage.setItem('password', pass);
-    alert(`Welcome back', ${username.value}`);
-    signInModal.close();
+    const userNameData = localStorage.getItem('createdUser');
+    const userPassData = localStorage.getItem('createdPassword');
+
+    if (userNameData === user && userPassData === pass) {
+      alert(`Welcome back', ${username.value}`);
+      signInModal.close();
+      SignIn.style.display = 'none';
+      createAccountLink.style.display = 'none';
+      welcomeText.textContent = `Welcome ${userNameData}`;
+      logoutbtn.style.display = 'block';
+    } else {
+      modalsignIn.showModal();
+    }
   }
   username.value = '';
   password.value = '';
 });
 
+logoutbtn.addEventListener('click', (e) => {
+  SignIn.style.display = 'block';
+  createAccountLink.style.display = 'block';
+  logoutbtn.style.display = 'none';
+  welcomeText.textContent = ` `;
+});
+
+closeModalButton.addEventListener('click', (e) => {
+  creatloginacModal.close();
+});
+console.log(siginConfirmCancel);
+siginConfirmCancel.addEventListener('click', (e) => {
+  creatloginacModal.close();
+  signInModal.close();
+  createAnAccountModal.showModal();
+});
+
 oKbtn.addEventListener('click', (e) => {
   nonSubmitModal.close();
 });
+
+// ###################################################### Create An Account ##########################################################################################
+let createAccountForm = document.getElementById('createAccountForm');
+let createAnAccountModal = document.querySelector('.createAnAccountModal');
+let createAccountLink = document.getElementById('createAccountLink');
+let form1 = document.getElementById('form1');
+let user = document.getElementById('user');
+let pass = document.getElementById('pass');
+let email = document.getElementById('Email');
+
+form1.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let usname = user.value;
+  let pswd = pass.value;
+
+  if (user.value === '' && pass.value === '' && email.value === '') {
+    nonSubmitModal.showModal();
+  } else {
+    localStorage.setItem('createdUser', usname);
+    localStorage.setItem('createdPassword', pswd);
+  }
+});
+
+createAccountLink.addEventListener('click', (e) =>
+  createAnAccountModal.showModal()
+);
+
+// ################################################# MenuBar #######################################################################################################
+
+let navlink = document.querySelectorAll('.navlink');
+// navlink.forEach((element) => {
+//   element.addEventListener('click', (e) => {
+//     navlink.forEach((element) => {
+//       e.target.parentNode.classList.remove('active');
+//     });
+
+//     // e.target.classList.add('active');
+//     e.target.parentNode.classList.add('active');
+//   });
+// });
+
+navlink.forEach((tab) => {
+  tab.addEventListener('click', (e) => {
+    console.log(
+      'This is element target: ',
+      e.target.parentNode.nodeName === 'UL'
+    );
+
+    if (e.target.parentNode.nodeName === 'UL') return;
+    navlink.forEach((tab) => tab.classList.remove('active'));
+    e.target.parentNode.classList.add('active');
+  });
+});
+
+
+//#region - Scroll based nav
+const nav = document.getElementsByTagName('nav');
+let prevScrollPos = window.scrollY;
+
+window.onscroll = () => {
+  let currentScrollPos = window.scrollY;
+
+  if (prevScrollPos > currentScrollPos) nav[0].style.top = '0';
+  else nav[0].style.top = '-20%';
+
+  prevScrollPos = currentScrollPos;
+};
+//#endregion - Scroll based nav
