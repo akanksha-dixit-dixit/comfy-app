@@ -197,6 +197,9 @@ const modalsignIn = document.querySelector('[data-signin-confirm]');
 const creatloginacModal = document.querySelector('.creatloginacModal');
 let logoutbtn = document.getElementById('logoutbtn');
 let welcomeText = document.querySelector('.welcomeText');
+let useRegex = /^[a-zA-Z]+$/;
+let passRegex =
+  /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/;
 
 SignIn.addEventListener('click', (e) => {
   signInModal.showModal();
@@ -209,11 +212,40 @@ cancelBtn.addEventListener('click', (e) => {
 const handleWelcome = () => {};
 
 form.addEventListener('submit', (e) => {
-  let user = username.value;
-  let pass = password.value;
   e.preventDefault();
-  if (username.value === '' && password.value === '') {
+
+  let user = username.value.trim();
+  let pass = password.value.trim();
+
+  //checkign if username & pass are not empty
+  if (username.value === '' || password.value === '') {
     nonSubmitModal.showModal();
+  }
+
+  //checking if username is valid
+  else if (!useRegex.test(user)) {
+    alert('Please Fill Correct username');
+    return;
+  }
+
+  // checking if username is in max length
+  else if (user.length < 6) {
+    alert('Username Must be atleast six character long');
+  } else if (pass.length < 4) {
+    alert('Password Must be atleast 6 Character');
+  } else if (!passRegex.test(pass)) {
+    /*VALID PASSWORD
+    ^                         Start anchor
+    (?=.*[A-Z].*[A-Z])        Ensure string has two uppercase letters.
+    (?=.*[!@#$&*])            Ensure string has one special case letter.
+    (?=.*[0-9].*[0-9])        Ensure string has two digits.
+    (?=.*[a-z].*[a-z]) Ensure string has two lowercase letters.
+    .{8}                      Ensure string is of length 8.
+    $                         End anchor.
+*/
+    alert(
+      'Password should contain one UpperCase,LowerCase,Number,and special chracter'
+    );
   } else {
     const userNameData = localStorage.getItem('createdUser');
     const userPassData = localStorage.getItem('createdPassword');
@@ -228,9 +260,9 @@ form.addEventListener('submit', (e) => {
     } else {
       modalsignIn.showModal();
     }
+    username.value = '';
+    password.value = '';
   }
-  username.value = '';
-  password.value = '';
 });
 
 logoutbtn.addEventListener('click', (e) => {
@@ -306,7 +338,6 @@ navlink.forEach((tab) => {
     e.target.parentNode.classList.add('active');
   });
 });
-
 
 //#region - Scroll based nav
 const nav = document.getElementsByTagName('nav');
